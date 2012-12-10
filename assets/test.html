@@ -1,0 +1,105 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+<head>
+<meta charset="utf-8">
+<title>WebGLは冗長だけど別にいいと思う</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="js/script.js"></script>
+</head>
+<body>
+
+<header class="mod-pageHeader"><div class="mod-pageHeaderInner">
+	<div class="mod-pageHeader-logo"><a href="/blog/"><img src="img/logo.svg" alt="" width="116" height="36"></a></div>
+</div></header>
+
+<div class="mod-pageTitle"><div class="mod-pageTitleInner">
+<h1>WebGLは冗長だけど別にいいと思う</h1>
+
+<div>Posted : <time pubdate="pubdate" datetime="2012-07-23T00:00:00+09:00">Jul 23, 2012</time></div>
+</div></div>
+
+<div class="mod-pageBody">
+<div class="mod-pageContents">
+<div class="mod-pageContentsInner">
+<p>WebGLは冗長だ。使うためには</p>
+<ol>
+<li>VertexShaderのソース書く</li>
+<li>FragmentShaderのソース書く</li>
+<li>VertexShaderのソースをコンパイルしてVertexShaderをつくる</li>
+<li>VertexShaderのソースをコンパイルしてVertexShaderをつくる</li>
+<li>空のシェーダープログラムを作って、2つのシェーダーを設定し、互いをリンクする</li>
+<li>作ったシェーダープログラムを使うことを宣言する</li>
+<li>空のバッファーを用意する</li>
+<li>描画するモデルの頂点をきめてバッファーに書き込む</li>
+<li>clearColor()する</li>
+<li>drawArrays()する</li>
+</ol>
+<p>のような手順を踏まなくていはいけない。これはまるで JavaScript を書いていることとは全く別の言語を書いているような感覚になるはずだ。</p>
+
+<p>これは WebGL が OpenGL 由来というのがひとつの理由だ。OpenGL は歴史ある言語だし、安定している。そして、WebGL はゼロからつくられたのではなく、安定している言語である OpenGL を元につくられた。</p>
+
+<p><img alt='' src='http://yomotsu.net/blog/img/2012-07-23-webgl-as-an-api/img_01.png' /></p>
+
+<p>WebGL はまるで OpenGL のサブセットのような API として存在している。そしてこの API を利用することで、ブラウザーから直接 GPU にアクセスできる。</p>
+
+<p>WebGL は冗長なコードが必要であるが、あくまでも API なのだ。</p>
+
+<p>とはいえ、普段 JavaScript を主に扱うであろうフロントエンドエンジニアが WebGL が難しく、異世界の言語であると感じるだろう。であれば、WebGL をもっとフロントエンドエンジニアの知識 (Javacript) に近づけたラッパーライブラリーを使えばいい。例えば THREE.js だ。</p>
+
+<p>つまり、WebGL はあくまでも API であり、それをもっと簡単に使うこともできるし、そのまま使うこともできる。そして結果的に表示ができるというふうに理解しておくのがいいのではないと考えている。</p>
+<hr />
+<p>ちなみに THREE.js について、<a href='http://www.codegrid.net/'>CodeGrid</a>で、この先少し基本を紹介するよなのでよかったらお読みください。</p>
+</div>
+</div>
+
+
+<div class="mod-articleNav">
+<ul>
+<li class="mod-articleNav-home">
+<a href="/blog/">表紙</a>
+</li>
+<li class="mod-articleNav-prev">
+<a href="/blog/2012/07/23/sass-less.html">Sass か LESS か</a> 
+</li>
+
+</ul>
+</div>
+
+<div id="disqus_thread"></div>
+
+</div>
+
+<footer class="mod-pageFooter"><div class="mod-pageFooterInner">
+	<aside class="mod-pageInfo">
+		<h1>Author</h1>
+		<div class="mod-pageInfo-authorImage">
+			<img src="img/img.jpg" alt="" width="80" height="80">
+			<img src="img/mvp.png" alt="Microsoft MVP" width="40" height="64">
+		</div>
+		<div class="mod-pageInfo-text">
+			<p>Akihiro Oyamada (a.k.a yomotsu) </p>
+			<p>ウェブフロントエンドエンジニア。Microsoft MVP for Internet Explorer 2011, 2012。CSS3, SVG, WebGL など表現に関する Web 技術を日々研究中。</p>
+			<p>執筆や講演の履歴など、<a href="/profile/">さらに詳細な情報は Profile をお読みください</a>。</p>
+			<hr>
+			<p>ご意見ご感想や、執筆、講演などのご相談は<a href="/inquiry/">お問い合わせフォーム</a>へ。<br>Web 制作のご相談は info@pxgrid.com へ。</p>
+		</div>
+	</aside>
+	<aside class="mod-social">
+		<h1>Find Me!</h1>
+		<ul>
+			<li><a href="http://www.facebook.com/akihiro.oyamada/">Facebook</a></li>
+			<li><a href="https://twitter.com/yomotsu/">Twitter</a></li>
+			<li><a href="https://github.com/yomotsu/">GitHub</a></li>
+		</ul>
+	</aside>
+	<aside class="mod-aside">
+		<h1>Subscribe to this Blog!</h1>
+		<ul>
+			<li><a href="/blog/feed.xml">Facebook</a></li>
+		</ul>
+	</aside>
+</div></footer>
+
+</body>
+</html>

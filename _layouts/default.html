@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }}</title>
+<meta name="msapplication-TileImage" content="/assets/img/win8-tile-144.png">
+<meta name="msapplication-TileColor" content="#000000">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="/assets/js/script.js"></script>
+</head>
+<body>
+
+{% include header.html %}
+
+<div class="mod-pageTitle"><div class="mod-pageTitleInner">
+<h1>{{ page.title }}</h1>
+{% if page.category %}<div class="category">page.category: {{ page.category }}</div>{% endif %}
+{% if page.date %}<div>Posted : <time pubdate="pubdate" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%b' }} {{ page.date | date: '%d' }}, {{ page.date | date: '%Y' }}</time></div>{% endif %}
+</div></div>
+
+<div class="mod-pageBody">
+<div class="mod-pageContents">
+<div class="mod-pageContentsInner">
+{{ content }}
+</div>
+</div>
+{% include sidenav.html %}
+
+<div class="mod-articleNav">
+<ul>
+<li class="mod-articleNav-home">
+<a href="/blog/">表紙</a>
+</li>
+{% if page.previous.url %}<li class="mod-articleNav-prev">
+<a href="/{{page.previous.url}}">{{page.previous.title}}</a> 
+</li>{% endif %}
+{% if page.next.url %}<li class="mod-articleNav-next">
+<a href="/{{page.next.url}}">{{page.next.title}}</a>
+</li>{% endif %}
+</ul>
+</div>
+
+{% if page.previous.url or page.previous.url %}<div id="disqus_thread"></div>{% endif %}
+
+</div>
+
+{% include footer.html %}
+
+</body>
+</html>

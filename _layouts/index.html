@@ -1,0 +1,30 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }}</title>
+<meta name="msapplication-TileImage" content="/assets/img/win8-tile-144.png">
+<meta name="msapplication-TileColor" content="#000000">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="/assets/js/script.js"></script>
+</head>
+<body>
+
+{% include header.html %}
+
+<div class="mod-pageBody">
+<div class="mod-pageContents">
+<div class="mod-pageContentsInner">
+{% if page.category %}<div class="category">page.category: {{ page.category }}</div>{% endif %}
+{{ content }}
+</div>
+</div>
+{% include sidenav.html %}
+</div>
+
+{% include footer.html %}
+
+</body>
+</html>
